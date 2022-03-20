@@ -17,6 +17,7 @@ function loginUser(email, password) {
   console.log(bcrypt.compareSync(password, user.password))
   if (user && bcrypt.compareSync(password, user.password)) {
     return user;
+    console.log('dd')
   }
   return null;
 }
