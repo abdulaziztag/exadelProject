@@ -6,7 +6,7 @@ const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 const mongoose = require('mongoose');
 require('dotenv').config()
-
+console.log('dsd')
 const usersRoute = require('./routes/usersRoute')
 const authRoute = require('./routes/authRoutes')
 const mongoUrl = `${process.env.MONGODB_URI}${process.env.DB_NAME}`;
