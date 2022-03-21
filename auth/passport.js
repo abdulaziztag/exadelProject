@@ -1,7 +1,7 @@
-const db = require('./database');
+const { getUserByEmail } = require('./auth');
 
 const jwtCallback = (jwt_payload, done) => {
-  const user = db.getUserByEmail(jwt_payload.email);
+  const user = getUserByEmail(jwt_payload.email);
   if (user) {
     return done(null, user);
   }
