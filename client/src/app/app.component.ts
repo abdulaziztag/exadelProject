@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'client';
+  menuItems = [
+    {
+      title: 'Categories',
+      link: '/categories'
+    },
+    {
+      title: 'Subscriptions',
+      link: '/subscriptions'
+    },
+    {
+      title: 'Obligatory',
+      link: '/obligatory'
+    },
+    {
+      title: 'Statistics',
+      link: '/statistics'
+    },
+    {
+      title: 'Admin',
+      link: '/admin'
+    }
+  ]
 }
