@@ -1,0 +1,26 @@
+.error-page {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+
+  &__image {
+    width: 100%;
+    margin-right: 7%;
+  }
+
+  &__text {
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    line-height: 60px;
+    flex-direction: column;
+    &__status {
+      font-size: 60px;
+      color: #c218b5;
+    }
+    &__message1 {
+      font-size: 40px;
+    }
+  }
+}
