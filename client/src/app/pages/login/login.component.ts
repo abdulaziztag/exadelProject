@@ -1,18 +1,20 @@
-import { Component, Injectable } from '@angular/core'
-import { HttpClient } from '@angular/common/http'
+import { Component } from '@angular/core'
+import { LoginService } from './services/login.service'
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-@Injectable()
 export class LoginComponent {
-  constructor(private http: HttpClient) {}
+  constructor(private loginService: LoginService) {}
   login() {
-    let data = this.http
-      .get('https://jsonplaceholder.typicode.com/todos/1')
-      .subscribe()
-    console.log(data)
+    this.loginService.login('d', 's').subscribe(data => {
+      console.log(data)
+    })
   }
+  changeVisibility() {
+    this.visibility = !this.visibility
+  }
+  visibility: boolean = false
 }
