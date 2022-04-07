@@ -9,15 +9,18 @@ require('dotenv').config()
 
 const usersRoute = require('./routes/usersRoute')
 const authRoute = require('./routes/authRoutes')
+const accountRoute = require('./routes/accountRoutes')
 const mongoUrl = `${process.env.MONGODB_URI}${process.env.DB_NAME}`;
 const app = express()
+
 
 mongoose.connect(mongoUrl);
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use('/', authRoute)
-app.use('/users', usersRoute)
+app.use('/api/users', usersRoute)
+app.use('/api/account', accountRoute)
 
 app.use(passport.initialize())
 

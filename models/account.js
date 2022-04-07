@@ -46,15 +46,12 @@ const accountSchema = new mongoose.Schema({
   piggyBank: {
     goal: {
       type: String,
-      required: true
     },
     goalAmount: {
       type: Number,
-      required: true
     },
     savedAmount: {
       type: Number,
-      required: true
     }
   }
 })

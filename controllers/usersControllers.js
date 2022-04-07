@@ -8,9 +8,11 @@ const getUsers = async (req, res) => {
 const addUsers = async (req, res) => {
   try {
     const user = await User.create(req.body);
+    console.log('ss')
     res.status(200).json(user);
   } catch (err) {
     res.status(400).json(err);
+    throw new Error(err)
   }
 }
 
