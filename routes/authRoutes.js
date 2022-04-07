@@ -8,7 +8,6 @@ router.post('/login', async (req, res) => {
     console.log(req.body)
     const user = loginUser(req.body.email, req.body.password)
     if (user) {
-
       const payload = {
         id: user.id,
         email: user.email
