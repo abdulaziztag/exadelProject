@@ -1,9 +1,10 @@
 <div class="body">
   <mat-toolbar class="toolbar">
-    <span class="toolbar__logo">Budgetify</span>
+    <a [routerLink]="['/']" class="toolbar__logo">Budgetify</a>
     <div class="toolbar__menu">
       <a
-        routerLink="{{item.link}}"
+        [routerLink]="[item.link]"
+        [routerLinkActive]="'toolbar__menu__links__active'"
         class="toolbar__menu__links"
         *ngFor="let item of menuItems"
       >
@@ -12,10 +13,10 @@
     </div>
     <div class="toolbar__account">
       <mat-icon>account_circle</mat-icon>
-      <div class="toolbar__account__text">Abdulaziz Manopov</div>
+      <div class="toolbar__account__text">{{ user.name }} {{user.surname}}</div>
     </div>
   </mat-toolbar>
-  <div class="content">
+  <div>
     <router-outlet></router-outlet>
   </div>
 </div>

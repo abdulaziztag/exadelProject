@@ -21,6 +21,7 @@ const addAccount = async (req, res) => {
       cash: req.body.cash || 0,
       currency: req.body.currency,
       description: req.body.description,
+      title: req.body.title,
       transactions: [],
       piggyBank: {}
     })
@@ -37,7 +38,7 @@ const deleteAccount = async (req, res) => {
     const user = await User.findOne({_id: req.body.userId})
     const accounts = user.accounts
     await User.findByIdAndUpdate({_id: req.body.userId}, {
-      accounts: accounts.filter(key => key !== req.body._id)
+      accounts: accounts.filter(key => key.toString() !== req.body._id)
     })
     res.status(200).send({message: 'Successfully deleted!'})
   } catch (e) {

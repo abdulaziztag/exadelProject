@@ -6,6 +6,10 @@ const accountSchema = new mongoose.Schema({
     required: true,
     default: 0
   },
+  title: {
+    type: String,
+    required: true
+  },
   currency: {
     type: String,
     required: true,
@@ -17,7 +21,11 @@ const accountSchema = new mongoose.Schema({
   },
   transactions: [
     {
-      typeOfTransactions: {
+      title: {
+        type: String,
+       // required: true
+      },
+      typeOfTransaction: {
         type: String,
         required: true
       },
@@ -25,10 +33,7 @@ const accountSchema = new mongoose.Schema({
         type: Number,
         required: true
       },
-      category: {
-        type: String,
-        required: true
-      },
+      category: [String],
       dateOfTransaction: {
         type: Number,
         required: true

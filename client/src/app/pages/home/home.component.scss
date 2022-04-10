@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  align-items: stretch;
+  min-height: 100%;
+  &__cards {
+    flex-grow: 2.7;
+    margin: 0 10px
+  }
+  &__transactions {
+    flex-grow: 6.6;
+    margin: 0 10px
+  }
+  &__buttons {
+    flex-grow: 2.7;
+    margin: 0 10px
+  }
+}

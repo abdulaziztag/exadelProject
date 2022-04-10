@@ -1,23 +1,8 @@
 const User = require('../models/users');
-
-const getUsers = async (req, res) => {
-  const users = await User.find({});
-  res.send(users)
-}
-
-const addUsers = async (req, res) => {
-  try {
-    const user = await User.create(req.body);
-    console.log('ss')
-    res.status(200).json(user);
-  } catch (err) {
-    res.status(400).json(err);
-    throw new Error(err)
-  }
-}
+const Account = require('../models/account')
 
 const editUser = async (req, res) => {
-  try {
+  /*try {
     const user = await User.findByIdAndUpdate(
       req.body._id,
       req.body,
@@ -26,17 +11,24 @@ const editUser = async (req, res) => {
     res.status(204).json(user);
   } catch (err) {
     res.status(400).json(err);
+  }*/
+}
+
+const getAccounts = async (req, res) => {
+  try {
+    const user = await User.findOne({_id: req.body.userId})
+    const accounts = await Account
+      .find(
+        {_id: {$in: user.accounts}},
+        ['title', 'cash', 'currency']
+      )
+    res.status(200).send(accounts)
+  } catch (e) {
+    res.status(501).send(e)
   }
 }
 
-const deleteUser = async (req, res) => {
-  await User.deleteOne({_id: req.params.id})
-  res.send({message: 'Deleted successfully!'})
-}
-
 module.exports = {
-  getUsers,
-  addUsers,
   editUser,
-  deleteUser
+  getAccounts
 }

@@ -27,6 +27,12 @@ const userSchema = new mongoose.Schema({
       type: String,
       require: true
     },
+    categories: [
+      {
+        categoryName: String,
+        type: String
+      }
+    ],
     accounts: [String]
   },
   {timestamps: true}
