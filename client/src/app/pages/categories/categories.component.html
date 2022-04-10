@@ -11,52 +11,14 @@
       >
     </mat-form-field>
     <div class="container__content__chips">
-      <div class="container__content__chips__chip">
-        Home
+      <div
+        *ngFor="let chip of categories"
+        class="container__content__chips__chip"
+        [class.income]="chip.type === 'income'"
+        [class.expenses]="chip.type === 'expenses'"
+      >
+        {{ chip.category }}
       </div>
-      <div class="container__content__chips__chip">
-        Home
-      </div><div class="container__content__chips__chip">
-      Home
-    </div><div class="container__content__chips__chip">
-      Home
-    </div><div class="container__content__chips__chip">
-      Home
-    </div><div class="container__content__chips__chip">
-      Home
-    </div><div class="container__content__chips__chip">
-      Home
-    </div><div class="container__content__chips__chip">
-      Home
-    </div><div class="container__content__chips__chip">
-      Home
-    </div><div class="container__content__chips__chip">
-      Home
-    </div><div class="container__content__chips__chip">
-      Home
-    </div><div class="container__content__chips__chip">
-      Home
-    </div><div class="container__content__chips__chip">
-      Homedaasdc
-    </div><div class="container__content__chips__chip">
-      Homesada
-    </div><div class="container__content__chips__chip">
-      Home
-    </div><div class="container__content__chips__chip">
-      Home
-    </div><div class="container__content__chips__chip">
-      Homedsadsa
-    </div><div class="container__content__chips__chip">
-      Home
-    </div><div class="container__content__chips__chip">
-      Home
-    </div><div class="container__content__chips__chip">
-      Home
-    </div><div class="container__content__chips__chip">
-      Home
-    </div>
-
-
     </div>
   </div>
   <div

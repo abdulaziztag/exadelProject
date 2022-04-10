@@ -28,7 +28,21 @@ const getAccounts = async (req, res) => {
   }
 }
 
+const getCategories = async (req, res) => {
+  try {
+    const user = await User.find({_id: req.body.userId})
+    if (user) {
+      res.status(200).send(user.categories)
+    } else {
+      res.status(404).send({message: 'User not found!'})
+    }
+  } catch (e) {
+    res.status(501).send({message:  'Something went wrong!'})
+  }
+}
+
 module.exports = {
   editUser,
-  getAccounts
+  getAccounts,
+  getCategories
 }
