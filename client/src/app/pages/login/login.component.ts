@@ -1,18 +1,41 @@
-import { Component, Injectable } from '@angular/core'
-import { HttpClient } from '@angular/common/http'
+import { Component, OnInit } from '@angular/core'
+import { AuthService } from '../../services/auth.service'
+import { TokenStorageService } from '../../services/token-storage.service'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-@Injectable()
-export class LoginComponent {
-  constructor(private http: HttpClient) {}
-  login() {
-    let data = this.http
-      .get('https://jsonplaceholder.typicode.com/todos/1')
-      .subscribe()
-    console.log(data)
+export class LoginComponent implements OnInit {
+  email: string = ''
+  password: string = ''
+  errorMessage: string = ''
+  constructor(
+    private authService: AuthService,
+    private tokenStorage: TokenStorageService,
+    private router: Router
+  ) {}
+  ngOnInit(): void {
+    if (this.tokenStorage.getToken()) {
+      this.router.navigate(['/'])
+    }
   }
+  login(): void {
+    this.authService.login(this.email, this.password).subscribe(
+      data => {
+        this.tokenStorage.saveToken(data.token)
+        this.tokenStorage.saveUser(data)
+        this.router.navigate(['/'])
+      },
+      error => {
+        console.log(error)
+      }
+    )
+  }
+  changeVisibility() {
+    this.visibility = !this.visibility
+  }
+  visibility: boolean = false
 }

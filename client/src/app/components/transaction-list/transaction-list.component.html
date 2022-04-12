@@ -1,0 +1,30 @@
+<div class="container">
+  <mat-form-field class="container__search" appearance="outline">
+    <mat-icon matPrefix>search</mat-icon>
+    <mat-label>Search</mat-label>
+    <input
+      type="text"
+      matInput
+    >
+  </mat-form-field>
+  <button mat-button style="margin-bottom: 3px">
+    <mat-icon>sort</mat-icon>
+    Transaction date</button>
+  <div class="container__overflow">
+    <mat-card class="transaction-card" *ngFor="let n of [1,2,3,4,5,6,7]">
+      <div class="transaction-card__category">
+        Home
+      </div>
+      <div class="transaction-card__content">
+        <div class="transaction-card__content__title">
+          <span>Flat rent for March</span>
+          <span class="transaction-card__content__title__cash">-650$</span>
+        </div>
+        <div class="transaction-card__content__details">
+          <mat-icon class="expenses">arrow_upward</mat-icon>
+          Expenses • 27.12.2020 • Sara Smith
+      </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div>
+  <mat-card
+    *ngFor="let card of cards;let i = index"
+    [class]="card.classes"
+    (click)="changeCard(i)"
+    [attr.data-card]="card.id"
+  >
+    <div [attr.data-card]="card.id" class="invisible"></div>
+    <mat-card-title class="card__title">
+      {{ card.title }}
+    </mat-card-title>
+    <div class="card__eclipse">
+      {{ card.currency }}
+    </div>
+    <div class="card__cash">
+      {{ card.cash }}
+    </div>
+  </mat-card>
+</div>

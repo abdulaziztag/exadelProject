@@ -1,0 +1,60 @@
+.card {
+  opacity: .5;
+  background: rgb(254,145,137);
+  height: 150px;
+  position: relative;
+  filter: drop-shadow(5px 10px 20px rgba(0, 0, 0, 0.25));
+  border-radius: 10px;
+  margin-bottom: 30px;
+  transition: .1s all;
+  background: linear-gradient(155deg, rgba(254,145,137,1) 0%, rgba(237,151,211,1) 50%, rgba(133,170,223,1) 100%);
+
+  &__title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 41px;
+  }
+
+  &:hover {
+   opacity: .7;
+  }
+  &.active {
+    opacity: 1;
+  }
+
+  &__eclipse {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    right: 10px;
+    display: flex;
+    color: #D376D7;
+    font-family: 'Space Grotesk', sans-serif;
+    font-style: normal;
+    align-items: center;
+    justify-content: center;
+    font-size: 56px;
+    top: 10px;
+    border-radius: 100%;
+    background: #FFFFFF;
+  }
+
+  &__cash {
+    position: absolute;
+    bottom: 35px;
+    left: 10px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-style: normal;
+    font-size: 48px;
+  }
+}
+
+.invisible {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 10 ;
+}

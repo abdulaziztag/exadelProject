@@ -1,21 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Alata&family=Merriweather:wght@300&family=Space+Grotesk:wght@300&display=swap');
+
 .body {
   background-color: #EFEFEF;
-  height: 100%;
+  min-height: 100%;
 }
 
 .toolbar {
   background-color: transparent;
   display: flex;
   justify-content: space-around;
-    &__logo {
+
+  &__logo {
     font-family: 'Alata', serif;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
+    text-decoration: none;
     line-height: 28px;
     color: #000000;
   }
+
   &__menu {
     &__links {
       font-family: 'Space Grotesk', serif;
@@ -30,8 +34,13 @@
       &:hover {
         text-decoration: underline;
       }
+
+      &__active {
+        font-weight: bold;
+      }
     }
   }
+
   &__account {
     display: flex;
     font-family: 'Space Grotesk', serif;
@@ -41,6 +50,7 @@
     align-items: center;
     line-height: 28px;
     color: #000000;
+
     &__text {
       margin-left: 10px;
     }

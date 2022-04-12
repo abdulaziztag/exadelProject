@@ -1,10 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<div
+  class="container"
+>
+  <div class="container__content">
+    <mat-form-field appearance="outline" class="container__content__search">
+      <mat-icon matPrefix>search</mat-icon>
+      <mat-label>Search</mat-label>
+      <input
+        type="text"
+        matInput
+      >
+    </mat-form-field>
+    <div class="container__content__chips">
+      <div
+        *ngFor="let chip of categories"
+        class="container__content__chips__chip"
+        [class.income]="chip.type === 'income'"
+        [class.expenses]="chip.type === 'expenses'"
+      >
+        {{ chip.category }}
+      </div>
+    </div>
+  </div>
+  <div
+    class="container__handlers"
+  >
+    <button mat-button class="container__handlers__sort-button">
+      <mat-icon class="income">arrow_downward</mat-icon>
+      Income
+    </button>
+    <button mat-button class="container__handlers__sort-button">
+      <mat-icon class="expenses">arrow_upward</mat-icon>
+      Expenses
+    </button>
+    <button mat-button class="container__handlers__add-button">
+      <mat-icon>add_circle</mat-icon>
+      Add category
+    </button>
+  </div>
+</div>

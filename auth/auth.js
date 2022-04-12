@@ -1,13 +1,12 @@
-const bcrypt = require('bcrypt');
 const Users = require('../models/users')
 
 async function getUserByEmail(email) {
-  return await Users.find({name: email})
+  return await Users.findOne({email})
 }
 
-function loginUser(email, password) {
-  const user = getUserByEmail(email);
-  if (user && bcrypt.compareSync(password, user.password)) {
+async function loginUser(email, password) {
+  const user = await getUserByEmail(email);
+  if (user && password === user.password) {
     return user;
   }
   return null;
