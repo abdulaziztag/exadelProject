@@ -11,18 +11,29 @@
     <mat-icon>sort</mat-icon>
     Transaction date</button>
   <div class="container__overflow">
-    <mat-card class="transaction-card" *ngFor="let n of [1,2,3,4,5,6,7]">
+    <mat-card class="transaction-card" *ngFor="let transaction of transactionList">
       <div class="transaction-card__category">
-        Home
+        {{ transaction.category[0] }}
       </div>
       <div class="transaction-card__content">
         <div class="transaction-card__content__title">
-          <span>Flat rent for March</span>
-          <span class="transaction-card__content__title__cash">-650$</span>
+          <span>{{ transaction.title }}</span>
+          <span
+            [class.transaction-card__content__title__cash__expenses]="transaction.typeOfTransaction==='expenses'"
+            [class.transaction-card__content__title__cash__income]="transaction.typeOfTransaction==='income'"
+          >
+            {{ transaction.typeOfTransaction === 'expenses' ? '-' : '+'}}
+            {{ transaction.cash }}
+          </span>
         </div>
         <div class="transaction-card__content__details">
-          <mat-icon class="expenses">arrow_upward</mat-icon>
-          Expenses • 27.12.2020 • Sara Smith
+          <mat-icon
+            [class.expenses]="transaction.typeOfTransaction === 'expenses'"
+            [class.income]="transaction.typeOfTransaction === 'income'"
+          >{{ transaction.typeOfTransaction === 'expenses' ? 'arrow_upward' : 'arrow_downward'}}</mat-icon>
+          {{ transaction.typeOfTransaction | titlecase }}
+          • {{ transaction.dateOfTransaction | date:"dd.MM.yy" }}
+          • {{ transaction.payee }}
       </div>
       </div>
     </mat-card>

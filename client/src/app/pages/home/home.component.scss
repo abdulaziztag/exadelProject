@@ -3,15 +3,15 @@
   align-items: stretch;
   min-height: 100%;
   &__cards {
-    flex-grow: 2.7;
+    flex-grow: 2.5;
     margin: 0 10px
   }
   &__transactions {
-    flex-grow: 6.6;
+    flex-grow: 6;
     margin: 0 10px
   }
   &__buttons {
-    flex-grow: 2.7;
+    flex-grow: 1.5;
     margin: 0 10px
   }
 }

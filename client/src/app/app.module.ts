@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -23,7 +23,15 @@ import { GradientCardComponent } from './components/gradient-card/gradient-card.
 import { HomeComponent } from './pages/home/home.component'
 import { TransactionListComponent } from './components/transaction-list/transaction-list.component'
 import { HandlersComponent } from './components/handlers/handlers.component'
-
+import { DateFromNumberPipe } from './pipes/date.pipe'
+import { DrawerComponent } from './components/drawer/drawer.component'
+import { MatSidenavModule } from '@angular/material/sidenav'
+import { AddTransactionComponent } from './components/add-transaction/add-transaction.component'
+import { MatSnackBarModule } from '@angular/material/snack-bar'
+import { MatButtonToggleModule } from '@angular/material/button-toggle'
+import { MatSelectModule } from '@angular/material/select'
+import { MatDatepickerModule } from '@angular/material/datepicker'
+import { MatNativeDateModule } from '@angular/material/core'
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +44,10 @@ import { HandlersComponent } from './components/handlers/handlers.component'
     HomeComponent,
     SubscriptionsComponent,
     TransactionListComponent,
-    HandlersComponent
+    HandlersComponent,
+    DateFromNumberPipe,
+    DrawerComponent,
+    AddTransactionComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +59,14 @@ import { HandlersComponent } from './components/handlers/handlers.component'
     MatIconModule,
     MatInputModule,
     FormsModule,
-    MatCardModule
+    MatCardModule,
+    MatSidenavModule,
+    MatSnackBarModule,
+    MatButtonToggleModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [authInterceptorProviders],
   exports: [GradientCardComponent],
