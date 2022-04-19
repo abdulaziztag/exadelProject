@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { TokenStorageService } from './services/token-storage.service'
-import { Router } from '@angular/router'
+import { NotificationService } from './services/notification.service'
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,12 @@ import { Router } from '@angular/router'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor(private tokenService: TokenStorageService) {}
+  title = 'client'
+
+  constructor(
+    private tokenService: TokenStorageService,
+    private notification: NotificationService
+  ) {}
   user: { surname: string; name: string; email: string; role: string } = {
     name: '',
     surname: '',
@@ -41,6 +46,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.tokenService.getUser()
     this.user.role === 'user' && this.menuItems.pop()
-    console.log(this.user)
+    this.notification.openSnackBar('Good job! lorem10')
   }
 }

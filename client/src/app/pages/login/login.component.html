@@ -15,24 +15,25 @@
         >
       </mat-form-field>
       <mat-form-field class="example-full-width" appearance="outline">
-      <mat-label>Password</mat-label>
-      <input
-        type="email"
-        matInput
-        [(ngModel)]="password"
-        [type]="visibility ? 'text' : 'password'"
-      >
+        <mat-label>Password</mat-label>
+        <input
+          type="email"
+          matInput
+          [(ngModel)]="password"
+          [type]="visibility ? 'text' : 'password'"
+        >
         <button matSuffix type="button" mat-icon-button (click)="changeVisibility()">
-          <mat-icon>{{visibility ? 'visibility_off': 'visibility'}}</mat-icon>
+          <mat-icon>{{visibility ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
-    </mat-form-field>
-    <button
-      mat-raised-button
-      color="accent"
-      type="button"
-      (click)="login()"
-      style="color: black"
-    >Login</button>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="accent"
+        type="button"
+        (click)="login()"
+        style="color: black"
+      >Login
+      </button>
     </div>
   </div>
 </div>

@@ -6,7 +6,7 @@
     overflow: scroll;
     max-height: calc(100% - 150px);
     position: fixed;
-    width: calc(55% - 35px)
+    width: calc(57% - 25px)
   }
   max-height: 100%;
 }
@@ -50,7 +50,12 @@
       justify-content: space-between;
 
       &__cash {
-        color: #EE3F19;
+        &__expenses {
+          color: #EE3F19;
+        }
+        &__income {
+          color: #21C206;
+        }
       }
     }
     &__details {
@@ -74,9 +79,16 @@
   margin-right: 10px;
 }
 
+.income {
+  background-color: #21C206;
+  color: #fff;
+  border-radius: 100%;
+  padding: 3px;
+  margin-right: 10px;
+}
+
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
   color: rgba(0,0,0,.6)!important;
-  // opacity: 1!important;
 }
 
 ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
@@ -84,10 +96,8 @@
 }
 
 ::ng-deep .mat-focused .mat-form-field-label {
-  /*change color of label*/
   color: black !important;
 }
 ::ng-deep .mat-form-field-label {
-  /*change color of label*/
   color: rgba(0,0,0,.6)!important;
 }

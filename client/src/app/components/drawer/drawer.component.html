@@ -1,0 +1,12 @@
+<div
+  class="drawer"
+  [class.drawer__animation]="drawerComponent"
+>
+  <app-add-transaction *ngIf="component === 'add-transaction'"></app-add-transaction>
+</div>
+<div
+  class="overlay"
+  [style.opacity]="drawerComponent ? 1 : 0"
+  [style.zIndex]="drawerComponent ? 10 : -1"
+  (click)="this.drawerComponent = false"
+></div>
