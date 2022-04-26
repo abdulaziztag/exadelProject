@@ -3,6 +3,12 @@
   [class.drawer__animation]="drawerComponent"
 >
   <app-add-transaction *ngIf="component === 'add-transaction'"></app-add-transaction>
+  <app-about-transaction *ngIf="component === 'about-transaction'"></app-about-transaction>
+  <app-about-account *ngIf="component === 'about-account'"></app-about-account>
+  <app-add-account *ngIf="component === 'add-account'"></app-add-account>
+  <app-edit-account *ngIf="component === 'edit-account'"></app-edit-account>
+  <app-edit-transaction *ngIf="component === 'edit-transaction'"></app-edit-transaction>
+  <app-add-category *ngIf="component === 'add-category'"></app-add-category>
 </div>
 <div
   class="overlay"

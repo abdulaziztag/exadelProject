@@ -1,17 +1,28 @@
 const User = require('../models/users');
 const Account = require('../models/account')
 
-const editUser = async (req, res) => {
-  /*try {
-    const user = await User.findByIdAndUpdate(
-      req.body._id,
-      req.body,
-      {new: true}
-    );
-    res.status(204).json(user);
-  } catch (err) {
-    res.status(400).json(err);
-  }*/
+const addCategory = async (req,res) => {
+  try {
+    const user = await User.findOne({_id: req.body.userId})
+    user.categories.push({typeOfCategory: req.body.category.type, categoryName: req.body.category.categoryName})
+    user.save()
+    res.status(200).send(user.categories)
+  } catch (e) {
+    res.status(500).send({message: 'Something went wrong!'})
+  }
+}
+
+const deleteCategory = async (req, res) => {
+  try {
+    const user = await User.findOne({_id: req.body.userId})
+    user.categories = user.categories.filter(key => {
+      return key._id.toString() !== req.body._id
+    })
+    user.save()
+    res.status(200).send(user.categories)
+  } catch (e) {
+    res.status(500).send({message: 'Something went wrong!'})
+  }
 }
 
 const getAccounts = async (req, res) => {
@@ -30,7 +41,7 @@ const getAccounts = async (req, res) => {
 
 const getCategories = async (req, res) => {
   try {
-    const user = await User.find({_id: req.body.userId})
+    const user = await User.findOne({_id: req.body.userId})
     if (user) {
       res.status(200).send(user.categories)
     } else {
@@ -42,7 +53,8 @@ const getCategories = async (req, res) => {
 }
 
 module.exports = {
-  editUser,
   getAccounts,
-  getCategories
+  getCategories,
+  addCategory,
+  deleteCategory
 }

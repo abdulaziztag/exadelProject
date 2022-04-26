@@ -1,7 +1,7 @@
 <div class="container">
   <div class="container__header">
     <div class="container__header__title">Add transaction</div>
-    <button mat-icon-button (click)="drawer.setDrawer(false, '')">
+    <button mat-icon-button (click)="drawer.setDrawer(false)">
       <mat-icon>close</mat-icon>
     </button>
   </div>
@@ -21,49 +21,58 @@
     </mat-button-toggle>
   </mat-button-toggle-group>
   <div class="container__forms">
-    <mat-form-field class="text-field" appearance="outline">
-      <mat-label>Title <span style="color: red">*</span></mat-label>
+    <mat-form-field class="text-field validators" appearance="outline">
+      <mat-label>Title</mat-label>
       <input
         matInput
-        [(ngModel)]="title"
+        [formControl]="title"
         autocomplete="off"
         type="text"
       >
+      <mat-error *ngIf="title.invalid">Title can not be empty</mat-error>
     </mat-form-field>
     <mat-form-field
       appearance="outline"
-      class="text-field"
+      class="text-field validators"
     >
       <mat-label>Categories</mat-label>
       <mat-select [formControl]="categories" multiple>
         <mat-select-trigger class="options">
           <div
             class="options__chips"
-            *ngFor="let category of categories.value ">{{category.category}}</div>
+            *ngFor="let category of categories.value ">{{category.categoryName}}</div>
         </mat-select-trigger>
-        <mat-option *ngFor="let category of categoriesList" [value]="category">{{category.category}}</mat-option>
+        <mat-option *ngFor="let category of categoriesList" [value]="category">{{category.categoryName}}</mat-option>
       </mat-select>
+      <mat-error *ngIf="categories.invalid">Choose at least one category!</mat-error>
     </mat-form-field>
 
-    <mat-form-field class="text-field" appearance="outline">
-      <mat-label>Amount <span style="color: red">*</span></mat-label>
+    <mat-form-field class="text-field validators" appearance="outline">
+      <mat-label>Amount</mat-label>
       <input
         matInput
-        [(ngModel)]="amount"
+        [formControl]="amount"
         autocomplete="off"
         type="number"
       >
+      <mat-error *ngIf="amount.invalid">Amount can not be empty</mat-error>
     </mat-form-field>
 
     <mat-form-field name="fieldName" ngDefaultControl appearance="outline">
       <mat-label>Choose a date <span style="color: red">*</span></mat-label>
-      <input (dateChange)="changeDate($event)" readonly matInput [matDatepicker]="picker">
+      <input
+        (dateChange)="changeDate($event)"
+        readonly
+        matInput
+        [formControl]="date"
+        [matDatepicker]="picker"
+      >
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field class="text-field" appearance="outline">
-      <mat-label>Payee <span style="color: red">*</span></mat-label>
+      <mat-label>Payee</mat-label>
       <input
         matInput
         [(ngModel)]="payee"
@@ -73,7 +82,7 @@
     </mat-form-field>
 
     <mat-form-field class="text-field" appearance="outline">
-      <mat-label>Description <span style="color: red">*</span></mat-label>
+      <mat-label>Description</mat-label>
       <input
         matInput
         [(ngModel)]="description"
@@ -84,6 +93,7 @@
     <button
       mat-raised-button
       (click)="addTransaction()"
+      [disabled]="title.invalid || amount.invalid || categories.invalid"
       style="align-self: flex-end; background-color: #B9E2E6"
     >Save</button>
   </div>

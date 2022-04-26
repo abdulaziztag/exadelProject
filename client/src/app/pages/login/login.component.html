@@ -10,24 +10,26 @@
         <mat-label>Email</mat-label>
         <input
           type="email"
-          [(ngModel)]="email"
+          [formControl]="email"
           matInput
         >
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
       </mat-form-field>
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Password</mat-label>
         <input
-          type="email"
           matInput
-          [(ngModel)]="password"
+          [formControl]="password"
           [type]="visibility ? 'text' : 'password'"
         >
         <button matSuffix type="button" mat-icon-button (click)="changeVisibility()">
           <mat-icon>{{visibility ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
+        <mat-error *ngIf="password.invalid">Enter at least 6 characters!</mat-error>
       </mat-form-field>
       <button
         mat-raised-button
+        [disabled]="password.invalid || email.invalid || password.value === ''"
         color="accent"
         type="button"
         (click)="login()"

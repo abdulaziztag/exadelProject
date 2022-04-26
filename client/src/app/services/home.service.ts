@@ -12,7 +12,10 @@ const httpOptions = {
 })
 export class HomeService {
   public transactionsList$ = new Subject<Transaction[]>()
+  public sortByType$ = new Subject<string>()
+
   constructor(private http: HttpClient) {}
+
   requestTransactionList(_id: string): Observable<any> {
     return this.http.post(
       AUTH_API + 'get',
@@ -31,6 +34,37 @@ export class HomeService {
       },
       httpOptions
     )
+  }
+
+  deleteTransaction(_id: string, transactionId: string): Observable<any> {
+    return this.http.post(
+      AUTH_API + 'delete',
+      {
+        _id,
+        transactionId
+      },
+      httpOptions
+    )
+  }
+
+  editTransaction(
+    transactionId: string,
+    _id: string,
+    data: Transaction
+  ): Observable<any> {
+    return this.http.post(
+      AUTH_API + 'edit',
+      {
+        transactionId,
+        _id,
+        data
+      },
+      httpOptions
+    )
+  }
+
+  setSortByType(type: string) {
+    this.sortByType$.next(type)
   }
 
   setTransactionsList(transactions: Transaction[]) {

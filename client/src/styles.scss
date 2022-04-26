@@ -7,6 +7,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   width: 0
 }
 .panel-class {
-  background: #1AA103;
   color: white;
+}
+
+.success {
+  background: #1AA103;
+}
+
+.warning {
+  background: #EE3F19;
+}
+
+.custom-modal {
+  mat-dialog-container {
+    min-width: 450px;
+  }
 }

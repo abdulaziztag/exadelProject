@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  align-items: stretch;
+  min-height: 100%;
+  &__cards {
+    flex-grow: 2.5;
+    margin: 0 10px
+  }
+  &__tables {
+    flex-grow: 4.5;
+    margin: 0 10px;
+
+    &__buttons {
+      margin-top: 20px;
+      border-radius: 10px;
+    }
+  }
+}
+
+.mat-header-cell {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+table {
+  width: calc(100% - 200px);
+  margin-top: 10px;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.header {
+  background-color: #D5F1EC;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.mat-cell {
+  color: black;
+}

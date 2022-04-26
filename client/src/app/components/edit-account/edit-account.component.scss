@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: "Space Grotesk", sans-serif;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  &__fields {
+    margin-top: 20px;
+  }
+  &__actions {
+    align-self: end;
+  }
+}
+
+.text-field {
+  width: 100%
+}

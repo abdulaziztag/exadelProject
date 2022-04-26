@@ -1,12 +1,14 @@
 const express = require('express')
 const router = express.Router()
-const { editUser, getAccounts, getCategories } = require('../controllers/usersControllers')
+const { getAccounts, getCategories, addCategory, deleteCategory } = require('../controllers/usersControllers')
 
-
-router.put('/', editUser)
 
 router.post('/accounts', getAccounts)
 
 router.post('/getCategories', getCategories)
+
+router.post('/addCategory', addCategory)
+
+router.post('/deleteCategory', deleteCategory)
 
 module.exports = router

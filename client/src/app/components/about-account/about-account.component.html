@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="container__header">
+      <div class="container__header__title">
+        Account information
+      </div>
+      <div class="container__header__actions">
+        <button mat-icon-button (click)="editAccount()">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="deleteAccount()">
+          <mat-icon>delete_outline</mat-icon>
+        </button>
+        <button mat-icon-button (click)="drawer.setDrawer(false)">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="container__information">
+      <div class="container__information__content">
+        <div style="font-weight: bold">Title: </div>
+        <div>{{ accountInfo?.title | titlecase }}</div>
+      </div>
+      <hr>
+      <div class="container__information__content">
+        <div style="font-weight: bold">Balance:</div>
+        <div>{{ accountInfo?.cash | number:'1.2':'en-EN' }}</div>
+      </div>
+      <hr>
+      <div class="container__information__content">
+        <div style="font-weight: bold">Currency:</div>
+        <div>{{ accountInfo?.currency }}</div>
+      </div>
+      <hr>
+      <div class="container__information__content">
+        <div style="font-weight: bold">Description:</div>
+        <div>{{ accountInfo?.description }}</div>
+      </div>
+    </div>
+</div>

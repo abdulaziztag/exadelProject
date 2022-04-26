@@ -1,4 +1,5 @@
 export interface Categories {
-  type: string
-  category: string
+  typeOfCategory: string
+  categoryName: string
+  _id: string
 }

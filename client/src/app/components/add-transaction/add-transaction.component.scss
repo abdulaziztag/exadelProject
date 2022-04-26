@@ -1,5 +1,5 @@
 .container {
-  margin: 20px;
+  margin: 15px;
 
   &__header {
     display: flex;
@@ -18,7 +18,7 @@
 
   &__toggle-group {
     background: #fff;
-    margin-top: 20px;
+    margin-top: 10px;
     color: black
   }
 
@@ -66,11 +66,13 @@
 
 .mat-button-toggle-checked {
   opacity: 1;
-  outline: black;
 }
 
 .text-field {
-  width: 100%
+  width: 100%;
+  &.validators {
+    margin-bottom: 0;
+  }
 }
 
 ::ng-deep .mat-button-toggle-label-content {

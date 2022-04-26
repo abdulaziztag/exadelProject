@@ -54,8 +54,29 @@ const getTransactions = async (req, res) => {
   }
 }
 
+const editTransaction = async (req, res) => {
+  try {
+    const account = await Account.findOne({_id: req.body._id})
+    const transactionId = account.transactions.findIndex(key => {
+      return key._id.toString() === req.body.transactionId
+    })
+    if (transactionId === -1) {
+      res.status(501).send( {message: 'Something went wrong!'})
+    }
+    account.transactions[transactionId] = {
+      ...req.body.data
+    }
+    account.save()
+    res.status(200).send(account.transactions)
+  } catch (e) {
+    console.log(e)
+    res.status(501).send({message: 'Something went wrong!'})
+  }
+}
+
 module.exports = {
   addTransaction,
   deleteTransaction,
-  getTransactions
+  getTransactions,
+  editTransaction
 }

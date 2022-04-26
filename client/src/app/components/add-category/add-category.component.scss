@@ -1,0 +1,65 @@
+.container {
+  margin: 20px;
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &__title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 41px;
+    }
+  }
+
+  &__toggle-group {
+    background: #fff;
+    margin-top: 20px;
+    color: black
+  }
+
+  &__forms {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+}
+
+.expenses {
+  background-color: #EE3F19;
+  color: #fff;
+  border-radius: 100%;
+  padding: 3px;
+  margin-right: 10px;
+}
+
+.income {
+  background-color: #21C206;
+  color: #fff;
+  border-radius: 100%;
+  padding: 3px;
+  margin-right: 10px;
+}
+
+.mat-button-toggle {
+  background: #fff;
+  color: black;
+  opacity: .3;
+}
+
+.mat-button-toggle-checked {
+  opacity: 1;
+  outline: black;
+}
+
+.text-field {
+  width: 100%
+}
+
+::ng-deep .mat-button-toggle-label-content {
+  line-height: 42px !important;
+}

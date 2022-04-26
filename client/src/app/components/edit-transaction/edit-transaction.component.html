@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="container__header">
+    <div class="container__header__title">Edit transaction</div>
+    <button mat-icon-button (click)="drawer.setDrawer(false)">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <mat-button-toggle-group
+    name="transactionType"
+    [(ngModel)]="toggleButton"
+    aria-label="type"
+    class="container__toggle-group"
+  >
+    <mat-button-toggle value="income">
+      <mat-icon class="income">arrow_downward</mat-icon>
+      Income
+    </mat-button-toggle>
+    <mat-button-toggle value="expenses">
+      <mat-icon class="expenses">arrow_upward</mat-icon>
+      Expenses
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+  <div class="container__forms">
+    <mat-form-field class="text-field" appearance="outline">
+      <mat-label>Title <span style="color: red">*</span></mat-label>
+      <input
+        matInput
+        [(ngModel)]="title"
+        autocomplete="off"
+        type="text"
+      >
+      <mat-error>fd</mat-error>
+    </mat-form-field>
+    <mat-form-field
+      appearance="outline"
+      class="text-field"
+    >
+      <mat-label>Categories</mat-label>
+      <mat-select [(value)]="selectedCategory" multiple>
+        <mat-select-trigger class="options">
+          <div
+            class="options__chips"
+            *ngFor="let category of selectedCategory ">{{category}}</div>
+        </mat-select-trigger>
+        <mat-option *ngFor="let option of categories" [value]="option.categoryName">{{option.categoryName}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="text-field" appearance="outline">
+      <mat-label>Amount <span style="color: red">*</span></mat-label>
+      <input
+        matInput
+        [(ngModel)]="amount"
+        autocomplete="off"
+        type="number"
+      >
+    </mat-form-field>
+
+    <mat-form-field name="fieldName" ngDefaultControl appearance="outline">
+      <mat-label>Choose a date <span style="color: red">*</span></mat-label>
+      <input
+        (dateChange)="changeDate($event)"
+        readonly
+        matInput
+        [formControl]="date"
+        [matDatepicker]="picker"
+      >
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="text-field" appearance="outline">
+      <mat-label>Payee</mat-label>
+      <input
+        matInput
+        [(ngModel)]="payee"
+        autocomplete="off"
+        type="text"
+      >
+    </mat-form-field>
+
+    <mat-form-field class="text-field" appearance="outline">
+      <mat-label>Description</mat-label>
+      <input
+        matInput
+        [(ngModel)]="description"
+        autocomplete="off"
+        type="text"
+      >
+    </mat-form-field>
+    <button
+      mat-raised-button
+      [disabled]="title.length === 0 "
+      (click)="editTransaction()"
+      style="align-self: flex-end; background-color: #B9E2E6"
+    >Save</button>
+  </div>
+</div>
