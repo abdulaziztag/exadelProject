@@ -30,7 +30,7 @@ const userSchema = new mongoose.Schema({
     categories: [
       {
         categoryName: String,
-        type: String
+        typeOfCategory: String
       }
     ],
     accounts: [String]

@@ -8,7 +8,8 @@
 .toolbar {
   background-color: transparent;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 0 50px;
 
   &__logo {
     font-family: 'Alata', serif;
@@ -21,6 +22,7 @@
   }
 
   &__menu {
+    margin-left: 10%;
     &__links {
       font-family: 'Space Grotesk', serif;
       font-style: normal;
@@ -57,6 +59,11 @@
   }
 }
 
-.panel-class {
-  background: #1AA103;
+::ng-deep .menu {
+  padding: 3px 10px;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+::ng-deep .mat-simple-snackbar-action {
+  color: #fff
 }

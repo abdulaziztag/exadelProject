@@ -1,3 +1,12 @@
+.container {
+  overflow: scroll;
+  max-height: calc(100% - 50px);
+  position: fixed;
+  padding: 10px 50px 0 30px;
+  margin-left: -20px;
+  width: calc(25% - 30px);
+}
+
 .card {
   opacity: .5;
   background: rgb(254,145,137);

@@ -5,13 +5,31 @@
     <input
       type="text"
       matInput
+      [(ngModel)]="search"
+      (input)="searchHandler()"
+      autocomplete="off"
     >
   </mat-form-field>
-  <button mat-button style="margin-bottom: 3px">
+  <button
+    mat-button
+    (click)="sortByDate()"
+    style="margin-bottom: 3px"
+  >
     <mat-icon>sort</mat-icon>
     Transaction date</button>
   <div class="container__overflow">
-    <mat-card class="transaction-card" *ngFor="let transaction of transactionList">
+    <div class="no-transactions" *ngIf="transactionList.length === 0">
+      No transactions yet <br>
+      <button
+        mat-raised-button
+        (click)="drawer.setDrawer(true, 'add-transaction')"
+      >Add transaction</button>
+    </div>
+    <mat-card
+      class="transaction-card"
+      *ngFor="let transaction of transactionList"
+      (click)="drawer.setDrawer(true, 'about-transaction', transaction)"
+    >
       <div class="transaction-card__category">
         {{ transaction.category[0] }}
       </div>
@@ -19,6 +37,7 @@
         <div class="transaction-card__content__title">
           <span>{{ transaction.title }}</span>
           <span
+            class="transaction-card__content__title__cash"
             [class.transaction-card__content__title__cash__expenses]="transaction.typeOfTransaction==='expenses'"
             [class.transaction-card__content__title__cash__income]="transaction.typeOfTransaction==='income'"
           >

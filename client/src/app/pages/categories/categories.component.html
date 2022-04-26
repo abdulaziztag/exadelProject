@@ -7,6 +7,9 @@
       <mat-label>Search</mat-label>
       <input
         type="text"
+        [(ngModel)]="search"
+        (input)="searchHandler()"
+        autocomplete="off"
         matInput
       >
     </mat-form-field>
@@ -14,25 +17,41 @@
       <div
         *ngFor="let chip of categories"
         class="container__content__chips__chip"
-        [class.income]="chip.type === 'income'"
-        [class.expenses]="chip.type === 'expenses'"
+        [class.income]="chip.typeOfCategory === 'income'"
+        [class.expenses]="chip.typeOfCategory === 'expenses'"
       >
-        {{ chip.category }}
+        <div style="margin-right: 10px;">{{ chip?.categoryName }}</div>
+        <button mat-icon-button (click)="deleteCategory(chip._id)">
+          <mat-icon>delete_outline</mat-icon>
+        </button>
       </div>
     </div>
   </div>
   <div
     class="container__handlers"
   >
-    <button mat-button class="container__handlers__sort-button">
+    <button
+      mat-button
+      class="container__handlers__sort-button"
+      [color]="sortButtons === 'income' && 'active'"
+      (click)="sortByType('income')"
+    >
       <mat-icon class="income">arrow_downward</mat-icon>
       Income
     </button>
-    <button mat-button class="container__handlers__sort-button">
+    <button
+      mat-button
+      class="container__handlers__sort-button"
+      [color]="sortButtons === 'expenses' && 'active'"
+      (click)="sortByType('expenses')"
+    >
       <mat-icon class="expenses">arrow_upward</mat-icon>
       Expenses
     </button>
-    <button mat-button class="container__handlers__add-button">
+    <button
+      mat-button class="container__handlers__add-button"
+      (click)="drawer.setDrawer(true, 'add-category')"
+    >
       <mat-icon>add_circle</mat-icon>
       Add category
     </button>

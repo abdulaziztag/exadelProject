@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>Dialog with elements</h1>
+<div mat-dialog-content>
+  <div
+    class="dialog-container"
+    *ngIf="data.purpose === 'deleteAccount'"
+  >
+    Are you really want to delete this account?
+  </div>
+  <div
+    class="dialog-container"
+    *ngIf="data.purpose === 'deleteTransaction'"
+  >
+    Are you really want to delete this transaction?
+  </div><div
+  class="dialog-container"
+  *ngIf="data.purpose === 'deleteCategory'"
+>
+  Are you really want to delete this category?
+</div>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="delete()">Yes</button>
+  <button mat-raised-button class="no-btn" mat-dialog-close>No</button>
+</div>

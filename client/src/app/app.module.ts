@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core'
+import { NgModule, LOCALE_ID } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module'
@@ -10,6 +10,10 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatIconModule } from '@angular/material/icon'
 import { HttpClientModule } from '@angular/common/http'
 import { authInterceptorProviders } from './helpers/auth.interceptor'
+
+import { registerLocaleData } from '@angular/common'
+import localeFr from '@angular/common/locales/fr'
+registerLocaleData(localeFr)
 
 // Components
 import { Error404Component } from './pages/404error/error404.component'
@@ -32,6 +36,17 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle'
 import { MatSelectModule } from '@angular/material/select'
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core'
+import { AboutTransactionComponent } from './components/about-transaction/about-transaction.component'
+import { AboutAccountComponent } from './components/about-account/about-account.component'
+import { AddAccountComponent } from './components/add-account/add-account.component'
+import { MatDialogModule } from '@angular/material/dialog'
+import { ModalWindowComponent } from './components/modal-window/modal-window.component'
+import { EditAccountComponent } from './components/edit-account/edit-account.component'
+import { EditTransactionComponent } from './components/edit-transaction/edit-transaction.component'
+import { AddCategoryComponent } from './components/add-category/add-category.component'
+import { MatTableModule } from '@angular/material/table'
+import { MatMenuModule } from '@angular/material/menu'
+import { MatFormFieldModule } from '@angular/material/form-field'
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +62,14 @@ import { MatNativeDateModule } from '@angular/material/core'
     HandlersComponent,
     DateFromNumberPipe,
     DrawerComponent,
-    AddTransactionComponent
+    AddTransactionComponent,
+    AboutTransactionComponent,
+    AboutAccountComponent,
+    AddAccountComponent,
+    ModalWindowComponent,
+    EditAccountComponent,
+    EditTransactionComponent,
+    AddCategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -66,9 +88,16 @@ import { MatNativeDateModule } from '@angular/material/core'
     MatSelectModule,
     ReactiveFormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDialogModule,
+    MatTableModule,
+    MatMenuModule,
+    MatFormFieldModule
   ],
-  providers: [authInterceptorProviders],
+  providers: [
+    authInterceptorProviders,
+    { provide: LOCALE_ID, useValue: 'en-EN' }
+  ],
   exports: [GradientCardComponent],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="container__header">
+    <div class="container__header__title">
+      Transaction information
+    </div>
+    <div class="container__header__actions">
+      <button mat-icon-button (click)="editTransaction()">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="deleteTransaction()" >
+        <mat-icon>delete_outline</mat-icon>
+      </button>
+      <button mat-icon-button (click)="drawer.setDrawer(false)">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="container__content">
+
+    <div class="container__content__type">
+      <div style="display: flex; align-items: center">
+        <mat-icon
+          [class.expenses]="transaction?.typeOfTransaction === 'expenses'"
+          [class.income]="transaction?.typeOfTransaction === 'income'"
+        >
+          {{ transaction?.typeOfTransaction === 'expenses' ? 'arrow_upward' : 'arrow_downward'}}
+        </mat-icon>
+        {{ transaction?.typeOfTransaction | titlecase }}
+      </div>
+      <div
+        style="font-size: 24px"
+        [class.incomeCash]="transaction?.typeOfTransaction==='income'"
+        [class.expensesCash]="transaction?.typeOfTransaction==='expenses'"
+      >
+        {{ transaction?.typeOfTransaction === 'expenses' ? '-' : '+'}}
+        {{ transaction?.cash }}
+      </div>
+    </div>
+    <div class="container__content__title">{{ transaction?.title }}</div>
+
+    <div class="container__content__categories">
+      <div
+        class="category"
+        *ngFor="let category of transaction?.category"
+      >{{ category }}</div>
+    </div>
+
+    <div class="container__content__information">
+      <div class="container__content__information__content">
+        <div style="font-weight: bold">Payment date:</div>
+        <div>{{ transaction?.dateOfTransaction | date: 'dd.MM.yyyy' }}</div>
+      </div>
+      <hr>
+      <div class="container__content__information__content">
+        <div style="font-weight: bold">Payee:</div>
+        <div>{{ transaction?.payee }}</div>
+      </div>
+      <hr>
+      <div class="container__content__information__content">
+        <div style="font-weight: bold">Description:</div>
+        <div>{{ transaction?.description }}</div>
+      </div>
+    </div>
+  </div>
+</div>

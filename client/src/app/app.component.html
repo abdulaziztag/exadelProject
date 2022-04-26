@@ -1,5 +1,5 @@
 <div class="body">
-  <mat-toolbar class="toolbar">
+  <mat-toolbar class="toolbar" *ngIf="this.router.url !== '/login'">
     <a [routerLink]="['/']" class="toolbar__logo">Budgetify</a>
     <div class="toolbar__menu">
       <a
@@ -11,13 +11,25 @@
         {{item.title}}
       </a>
     </div>
-    <div class="toolbar__account">
+    <div class="toolbar__account" [matMenuTriggerFor]="menu">
       <mat-icon>account_circle</mat-icon>
       <div class="toolbar__account__text">{{ user.name }} {{user.surname}}</div>
     </div>
+    <mat-menu #menu="matMenu" class="menu">
+      <div>
+        <span style="font-weight: bold">Email:</span> <br>
+        {{ user.email }} <br>
+        <span style="font-weight: bold">Name:</span> <br>
+        {{ user.name }} {{ user.surname }}
+      </div>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        Logout
+      </button>
+    </mat-menu>
   </mat-toolbar>
-  <div>
+  <div [@fadeAnimation]="outlet.isActivated ? outlet.activatedRoute : ''">
     <app-drawer></app-drawer>
-    <router-outlet></router-outlet>
+    <router-outlet #outlet="outlet"></router-outlet>
   </div>
 </div>

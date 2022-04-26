@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="container__header">
+    <div class="container__header__title">Add category</div>
+    <button mat-icon-button (click)="drawer.setDrawer(false)">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <mat-button-toggle-group
+    name="transactionType"
+    [(ngModel)]="toggleButton"
+    aria-label="type"
+    class="container__toggle-group"
+  >
+    <mat-button-toggle value="income">
+      <mat-icon class="income">arrow_downward</mat-icon>
+      Income
+    </mat-button-toggle>
+    <mat-button-toggle value="expenses">
+      <mat-icon class="expenses">arrow_upward</mat-icon>
+      Expenses
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+  <div class="container__forms">
+    <mat-form-field class="text-field" appearance="outline">
+      <mat-label>Title</mat-label>
+      <input
+        matInput
+        [formControl]="title"
+        autocomplete="off"
+        type="text"
+      >
+      <mat-error *ngIf="title.invalid">Title can not be empty</mat-error>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      (click)="addCategory()"
+      [disabled]="title.invalid"
+      style="align-self: flex-end; background-color: #B9E2E6; margin-top: 5px;"
+    >Save</button>
+  </div>
+</div>

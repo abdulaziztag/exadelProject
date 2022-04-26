@@ -1,1 +1,67 @@
-<p>statistics</p>
+<div class="container">
+  <div class="container__cards">
+    <app-gradient-card></app-gradient-card>
+  </div>
+  <div class="container__tables">
+    <mat-button-toggle-group
+      name="transactionType"
+      aria-label="type"
+      [(ngModel)]="toggleButton"
+      class="container__tables__buttons"
+    >
+      <mat-button-toggle value="category">
+        Categories statistics
+      </mat-button-toggle>
+      <mat-button-toggle value="monthly">
+        Monthly statistics
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <div
+      *ngIf="toggleButton === 'category'"
+    >Soon...</div>
+
+    <table
+      mat-table
+      [dataSource]="tableElements"
+      class="mat-elevation-z8"
+      *ngIf="toggleButton === 'monthly'"
+    >
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="month">
+        <th mat-header-cell *matHeaderCellDef>Month</th>
+        <td mat-cell *matCellDef="let element"> {{element.month}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="income">
+        <th mat-header-cell *matHeaderCellDef> Income </th>
+        <td mat-cell *matCellDef="let element"> {{element.income | number:'1.2':'en-EN'}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="expenses">
+        <th mat-header-cell *matHeaderCellDef> Expenses </th>
+        <td mat-cell *matCellDef="let element"> {{element.expenses | number:'1.2':'en-EN'}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="economy">
+        <th mat-header-cell *matHeaderCellDef> Economy </th>
+        <td mat-cell *matCellDef="let element"> {{element.economy | number:'1.2':'en-EN' }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="percentage">
+        <th mat-header-cell *matHeaderCellDef> % of economy </th>
+        <td mat-cell *matCellDef="let element"> {{element.percentage | number:'1.2':'en-EN' }} %</td>
+      </ng-container>
+
+      <tr class="header" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>
