@@ -1,0 +1,475 @@
+{
+	"info": {
+		"_postman_id": "48785c4c-4945-4930-ab68-2753363bb256",
+		"name": "Budgetify",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get mini info of accounts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZHVsYXppem1hbm5vcG92MDdAZ21haWwuY29tIiwicGFzc3dvcmQiOiJxd2VydHkxMjMiLCJpYXQiOjE2NDk1MDQ4NzksImV4cCI6MTY0OTUwODQ3OX0.wQ6x6mye8yQIibS3Oy6AjchvhZNNfEDQiSj14zpJhbM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"624eb9147ef394a4fdd45fd8\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/user/accounts",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"abdulazizmannopov07@gmail.com\",\r\n    \"password\": \"qwerty123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add account",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZHVsYXppem1hbm5vcG92MDdAZ21haWwuY29tIiwicGFzc3dvcmQiOiJxd2VydHkxMjMiLCJpYXQiOjE2NDk1MDQ4NzksImV4cCI6MTY0OTUwODQ3OX0.wQ6x6mye8yQIibS3Oy6AjchvhZNNfEDQiSj14zpJhbM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cash\": 3211,\r\n    \"currency\": \"$\",\r\n    \"description\": \"Xalq banki\",\r\n    \"title\": \"Debit card\",\r\n    \"userId\": \"624eb9147ef394a4fdd45fd8\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/account/add",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"account",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete account",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZHVsYXppem1hbm5vcG92MDdAZ21haWwuY29tIiwicGFzc3dvcmQiOiJxd2VydHkxMjMiLCJpYXQiOjE2NDk1MDQ4NzksImV4cCI6MTY0OTUwODQ3OX0.wQ6x6mye8yQIibS3Oy6AjchvhZNNfEDQiSj14zpJhbM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"624eb9147ef394a4fdd45fd8\",\r\n    \"_id\": \"625172c1b883c6c8a21a8187\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/account/delete",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"account",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add transaction",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZHVsYXppem1hbm5vcG92MDdAZ21haWwuY29tIiwicGFzc3dvcmQiOiJxd2VydHkxMjMiLCJpYXQiOjE2NDk1ODg1MTMsImV4cCI6MTY0OTU5MjExM30.3o1q2pjfVvZM-aiXBsYL4HYCQpKqxAeu2YsL4hftNZY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\": \"625179705c77a30f62d286c0\", \r\n    \"title\": \"Home\",\r\n    \"cash\": 3000,\r\n    \"typeOfTransaction\": \"expenses\",\r\n    \"category\": [\"Rent\"],\r\n    \"dateOfTransaction\": 1649588367870,\r\n    \"description\": \"Nothing\",\r\n    \"payee\": \"Abdulaziz Manopov\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/transaction/add",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"transaction",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete transaction",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZHVsYXppem1hbm5vcG92MDdAZ21haWwuY29tIiwicGFzc3dvcmQiOiJxd2VydHkxMjMiLCJpYXQiOjE2NDk1ODg1MTMsImV4cCI6MTY0OTU5MjExM30.3o1q2pjfVvZM-aiXBsYL4HYCQpKqxAeu2YsL4hftNZY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transactionId\": \"6252b92d8a88fa11217b0921\",\r\n    \"_id\": \"625179705c77a30f62d286c0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/transaction/delete",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"transaction",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get transactions list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZHVsYXppem1hbm5vcG92MDdAZ21haWwuY29tIiwicGFzc3dvcmQiOiJxd2VydHkxMjMiLCJpYXQiOjE2NDk1ODg1MTMsImV4cCI6MTY0OTU5MjExM30.3o1q2pjfVvZM-aiXBsYL4HYCQpKqxAeu2YsL4hftNZY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\": \"625179705c77a30f62d286c0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/transaction/get",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"transaction",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get categories",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZHVsYXppem1hbm5vcG92MDdAZ21haWwuY29tIiwicGFzc3dvcmQiOiJxd2VydHkxMjMiLCJpYXQiOjE2NDk1ODg1MTMsImV4cCI6MTY0OTU5MjExM30.3o1q2pjfVvZM-aiXBsYL4HYCQpKqxAeu2YsL4hftNZY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"624eb9147ef394a4fdd45fd8\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/user/getCategories",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"getCategories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get account info",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZHVsYXppem1hbm5vcG92MDdAZ21haWwuY29tIiwicGFzc3dvcmQiOiJxd2VydHkxMjMiLCJpYXQiOjE2NTA0Njg5NTQsImV4cCI6MTY1MTA3Mzc1NH0.GEK_JYhuvmvkxGztj4gTebuwzCQDlMUYjAl4WHaEb9c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\": \"625179705c77a30f62d286c0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/account/get",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"account",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit account",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZHVsYXppem1hbm5vcG92MDdAZ21haWwuY29tIiwicGFzc3dvcmQiOiJxd2VydHkxMjMiLCJpYXQiOjE2NTA3MzY4MjUsImV4cCI6MTY1MTM0MTYyNX0.bbFXAeCVy6a_fOZbJP3RsnDFXPqwqLcRTcRpt7AnwPg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\": \"6263d2afa5daaf093ef6f68f\",\r\n    \"data\": {\r\n        \"title\": \"Visa card\",\r\n        \"description\": \"Xalq banki\",\r\n        \"cash\": 100,\r\n        \"currency\": \"$\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/account/edit",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"account",
+						"edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit transaction",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZHVsYXppem1hbm5vcG92MDdAZ21haWwuY29tIiwicGFzc3dvcmQiOiJxd2VydHkxMjMiLCJpYXQiOjE2NTA3MzY4MjUsImV4cCI6MTY1MTM0MTYyNX0.bbFXAeCVy6a_fOZbJP3RsnDFXPqwqLcRTcRpt7AnwPg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transactionId\": \"62644688ca10481a5b808176\",\r\n    \"data\": {\r\n        \"title\": \"Rent for March2\",\r\n        \"cash\": 123,\r\n        \"typeOfTransaction\": \"income\",\r\n        \"description\": \"nice\",\r\n        \"payee\": \"fff\",\r\n        \"category\": [\"Salary\"],\r\n        \"dateOfTransaction\": 1234\r\n    },\r\n    \"_id\": \"6263d2afa5daaf093ef6f68f\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/transaction/edit",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"transaction",
+						"edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add category",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZHVsYXppem1hbm5vcG92MDdAZ21haWwuY29tIiwicGFzc3dvcmQiOiJxd2VydHkxMjMiLCJpYXQiOjE2NTA3MzY4MjUsImV4cCI6MTY1MTM0MTYyNX0.bbFXAeCVy6a_fOZbJP3RsnDFXPqwqLcRTcRpt7AnwPg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"624eb9147ef394a4fdd45fd8\",\r\n    \"category\": {\r\n        \"type\": \"expenses\",\r\n        \"categoryName\": \"Debt\"\r\n     }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/user/addCategory",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"addCategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete category",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
